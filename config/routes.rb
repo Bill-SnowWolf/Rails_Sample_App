@@ -1,5 +1,8 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
+#  get "users/new"
+  resources :users, only: [:index, :new]
+
+  match "users/registered" => 'users#registered'
 
   root :to => 'static_pages#home'
 
